@@ -79,4 +79,5 @@ int main(){
         printf("Branco.");
     }   
 
+    return 0;
 }
