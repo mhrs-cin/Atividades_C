@@ -89,9 +89,30 @@ int main(){
                                     printf("E parece que Rebeka vai ter que voltar andando...\n");
                                 }
                             }
+                        }else{
+                            printf("Nao foi dessa vez que Rebeka pode ajudar...\n");
+                            if(Dinheiro_Rebeka>=7.0){
+                                printf("Ela conseguiu! Rebeka voltou para casa e apanhou da mae por sumir noite passada!\n");
+                            }else if(Dinheiro_Rebeka<7.0){
+                                printf("E parece que Rebeka vai ter que voltar andando...\n");
+                            }
                         }
                     }
+                }else{
+                    printf("Nao foi dessa vez que Rebeka pode ajudar...\n");
+                    if(Dinheiro_Rebeka>=7.0){
+                        printf("Ela conseguiu! Rebeka voltou para casa e apanhou da mae por sumir noite passada!\n");
+                    }else if(Dinheiro_Rebeka<7.0){
+                        printf("E parece que Rebeka vai ter que voltar andando...\n");
+                    }
                 }
+            }
+        }else{
+            printf("Nao foi dessa vez que Rebeka pode ajudar...\n");
+            if(Dinheiro_Rebeka>=7.0){
+                printf("Ela conseguiu! Rebeka voltou para casa e apanhou da mae por sumir noite passada!\n");
+            }else if(Dinheiro_Rebeka<7.0){
+                printf("E parece que Rebeka vai ter que voltar andando...\n");
             }
         }
     }
