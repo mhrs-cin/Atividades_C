@@ -51,6 +51,9 @@ int main(){
 
                     if(fmod((Dinheiro_total/100)*PORCA, 1.0)==0&&fmod((Dinheiro_total/100)*PORCB, 1.0)==0&&fmod((Dinheiro_total/100)*PORCC, 1.0)==0){ // 2
                         
+                        char LA, LB, LC;
+                        scanf("%c, %c, %c", LA, LB, LC);
+
                         SOBRA = (Dinheiro_total)-((Dinheiro_total/100)*PORCA+(Dinheiro_total/100)*PORCB+(Dinheiro_total/100)*PORCC);
                         printf("Cada homem ficou com %.0lf, %.0lf e %.0lf reais, respectivamente\n", (Dinheiro_total/100)*PORCA, (Dinheiro_total/100)*PORCB, (Dinheiro_total/100)*PORCC);
                         Dinheiro_Rebeka+=SOBRA;
