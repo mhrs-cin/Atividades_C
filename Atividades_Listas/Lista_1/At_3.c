@@ -5,7 +5,7 @@ int main(){
 
     double Dinheiro_total, PORCA, PORCB, PORCC, VALA, VALB, VALC, SOBRA, Dinheiro_Rebeka = 3.0, INVEST = 0.0;
 
-    scanf("%lf\n%lf\n%lf\n%lf\n", &Dinheiro_total, &PORCA, &PORCB, &PORCC);
+    scanf("%lf\n%lf\n%lf\n%lf", &Dinheiro_total, &PORCA, &PORCB, &PORCC);
 
     if(fmod((Dinheiro_total/100)*PORCA, 1.0)==0&&fmod((Dinheiro_total/100)*PORCB, 1.0)==0&&fmod((Dinheiro_total/100)*PORCC, 1.0)==0){ // 0
         
@@ -51,7 +51,7 @@ int main(){
 
                     char LA, LB, LC;
                     int VA, VB, VC;
-                    scanf("%c\n%c\n%c", &LA, &LB, &LC);           
+                    scanf("\n%c\n%c\n%c", &LA, &LB, &LC);           
 
                     switch (LA)
                     {
@@ -329,10 +329,25 @@ int main(){
                             
                             Dinheiro_Rebeka-=1.0;
 
+                            int IDADEA, IDADEB, IDADEC, PARCEA, PARCEB, PARCEC, Soma_parcelas;
+                            scanf("\n%d\n%d\n%d", &IDADEA, &IDADEB, &IDADEC);
+
+                            if(IDADEA%3==0 || IDADEB%3==0 || IDADEC%3==0){
+
+                                Soma_parcelas = (IDADEA/3)+(IDADEB/3)+(IDADEC/3);
+
+                            }
+
                             if(fmod((Dinheiro_total/100)*PORCA, 1.0)==0&&fmod((Dinheiro_total/100)*PORCB, 1.0)==0&&fmod((Dinheiro_total/100)*PORCC, 1.0)==0){ // 3
                                 
                                 SOBRA = (Dinheiro_total)-((Dinheiro_total/100)*PORCA+(Dinheiro_total/100)*PORCB+(Dinheiro_total/100)*PORCC);
                                 printf("Cada homem ficou com %.0lf, %.0lf e %.0lf reais, respectivamente\n", (Dinheiro_total/100)*PORCA, (Dinheiro_total/100)*PORCB, (Dinheiro_total/100)*PORCC);
+                                printf("%d\n", Soma_letra);
+                                if(IDADEA%3==0 || IDADEB%3==0 || IDADEC%3==0){
+
+                                    printf("%d\n", Soma_parcelas);
+
+                                }
                                 Dinheiro_Rebeka+=SOBRA;
                                 if(Dinheiro_Rebeka>=7.0){
                                     printf("Ela conseguiu! Rebeka voltou para casa e apanhou da mae por sumir noite passada!\n");
@@ -342,6 +357,12 @@ int main(){
 
                             }else{
                                 printf("Nao foi dessa vez que Rebeka pode ajudar...\n");
+                                printf("%d\n", Soma_letra);
+                                if(IDADEA%3==0 || IDADEB%3==0 || IDADEC%3==0){
+
+                                    printf("%d\n", Soma_parcelas);
+
+                                }
                                 if(Dinheiro_Rebeka>=7.0){
                                     printf("Ela conseguiu! Rebeka voltou para casa e apanhou da mae por sumir noite passada!\n");
                                 }else if(Dinheiro_Rebeka<7.0){
