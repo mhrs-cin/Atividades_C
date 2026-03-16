@@ -11,38 +11,38 @@ int main(void){
         scanf("%d %c", &NUM, &W);
 
         if(W == 'E'){
-            if(Espaco_esq-NUM<1){
+            if(Ponto_atual-NUM<1){
                 printf("\nInformacao invalida\n");
                 break;
-            }else if(Espaco_esq-NUM>=1){
-                if(ante_W == 'D'){printf("\n");}
-                Espaco_esq-=NUM;
-                for(int x = 1; x<Espaco_esq; x++){
+            }else if(Ponto_atual-NUM>=1){
+                Ponto_previo = Ponto_atual;
+                Ponto_atual-=NUM;
+                if(ante_W == 'D' || ante_W == 'E'){printf("\n");}
+                for(int x = 1; x<Ponto_atual; x++){
                     printf(" ");
                 }
-                for(int x = Espaco_esq-1; x<Ponto_atual; x++){
+                for(int x = Ponto_atual; x<Ponto_previo+1; x++){
                     printf(".");
                 }
-                Ponto_atual-=NUM;
             }
         }else if(W == 'D'){
-            if(ante_W == 'E'){printf("\n");}
+            if(ante_W == 'D' || ante_W == 'E'){printf("\n");}
             Ponto_previo = Ponto_atual;
             Ponto_atual+= NUM;
-            if(ante_W == 'B'){Ponto_atual+=1;}
-            for(int x = 1; x<Espaco_esq; x++){
+            if(ante_W == 'B' || ante_W == 'E'){Ponto_atual+=1;}
+            for(int x = 1; x<Ponto_previo; x++){
                 printf(" ");
             }
             for(int x = Ponto_previo; x<Ponto_atual; x++){
                 printf(".");
             }
             Ponto_atual-=1;
-            if(ante_W == 'E'){Espaco_esq-=1;}
-            Espaco_esq+=NUM;
         }else if(W == 'B'){
+            if(ante_W != 'D' && ante_W != 'E'){printf(".");}
+            if(ante_W == 'B'){NUM-=1;}
             for(int x = 1; x<NUM; x++){
-                printf("\n");
-                for(int x = 1; x<Espaco_esq; x++){
+                if(ante_W == 'E' || ante_W == 'D' || ante_W == 'B'){printf("\n");}
+                for(int x = 1; x<Ponto_atual; x++){
                     printf(" ");
                 }
                 printf(".");
