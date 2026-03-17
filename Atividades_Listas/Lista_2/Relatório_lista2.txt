@@ -2,6 +2,7 @@ At_1: Não usei IA.
 
 At_2: Não usei IA.
 
-At_3: Usei IA para algumas fórmulas no começo e também para uma correção geral e final do código
+At_3: Usei IA para algumas fórmulas no começo e também para uma correção geral e final do código.
 
-At_4: 
+At_4: Usei IA para tentar corrigir o código, não deu certo, portanto voltei ao meu código original sem IA e com ajuda de amigos
+      Resolvi a questão.
