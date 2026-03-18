@@ -1,0 +1,8 @@
+At_1: Usei IA para corrigir o meu código, aprendi que é mais otimizado separar os inputs da lógica em si, algo bizarro estava
+      acontecendo quando ele testava as condições enquanto ainda estava recebendo inputs.
+
+At_2: 
+
+At_3: 
+
+At_4: 
