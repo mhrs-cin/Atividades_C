@@ -3,39 +3,96 @@
 
 int main(void){
 
-    char str[] = "00:00";
-    int days = 0;
+    char Start_time[] = "07:03"; // tempo inicial
+    int days = 0; // variável desnecessária para contar dias
+    int Current_client = 1, Client_amount = 0, MULT = 0, Greedy_clients = 0, Bought_cans = 0;
+    
+    scanf("%d %d %d\n", &Client_amount, &MULT, &Greedy_clients);
 
-    str[1]+=96;
+    char Greedy_array[Greedy_clients][5]; int Array_greedy[Greedy_clients];
 
-    while(str[4]>'9' || str[4]<'0'){
-        str[4] = str[4]-10;
-        str[3] = str[3]+1;
+    
+    for(int i = 0; i<Greedy_clients; i++){
+        for(int j = 0; j<6; j++){
+            char tempchar;
+            int tempint;
+            if(j<5){scanf("%c", &tempchar); Greedy_array[i][j] = tempchar;}else{scanf(" %d\n", &tempint); Array_greedy[i] = tempint;}
+        }
+    }   
+    
+
+    while(Current_client<=Client_amount){
+
+        int Equal_num = -1;
+
+        for(int i = 0; i<Greedy_clients; i++){
+            int Is_equal = 1;
+            for(int j = 0; j<5; j++){
+                if(Greedy_array[i][j]!=Start_time[j]){
+                    Is_equal = 0;
+                }
+            }
+            if(Is_equal==1){
+                Equal_num = i;
+            }
+        }
+        
+        if(Equal_num>=0){
+            Bought_cans+=Array_greedy[Equal_num];
+        }else{
+            if(MULT>0 && Current_client%MULT==0){
+                Bought_cans+=1;
+            }
+        }
+
+        if(Bought_cans>=50){
+
+            if(Equal_num>=0){
+                printf("Quem levou a cesta basica foi o %d* cliente atendido por coragem, as %c%c:%c%c. Que comprou %d latas.", Current_client, Start_time[0],Start_time[1],Start_time[3],Start_time[4], Array_greedy[Equal_num]);
+            }else{
+                printf("Quem levou a cesta basica foi o %d* cliente atendido por coragem, as %c%c:%c%c. Que comprou 1 lata.", Current_client, Start_time[0],Start_time[1],Start_time[3],Start_time[4]);
+            }
+
+            break;
+        }
+
+        Start_time[4] = Start_time[4]+3;
+
+        while(Start_time[4]>'9' || Start_time[4]<'0'){ //sequência de while loops que corrigem o horário;
+            Start_time[4] = Start_time[4]-10;
+            Start_time[3] = Start_time[3]+1;
+        }
+        while(Start_time[3]>'5' || Start_time[3]<'0'){
+            Start_time[3] = Start_time[3]-6;
+            Start_time[1] = Start_time[1]+1;
+        }
+        while(Start_time[0]>'2' || (Start_time[0]>='2' && Start_time[1]>='4') || Start_time[0]<'0' || Start_time[1]>'9' || Start_time[1]<'0'){
+            if(Start_time[0]=='2' && Start_time[1]=='4'){
+                Start_time[0] = '0';
+                Start_time[1] = '0';
+                days++;
+            }
+            while((Start_time[0]>='2' && Start_time[1]>=4) || (Start_time[0]>='2' && Start_time[1]<'0')){
+                Start_time[1] = Start_time[1]-5;
+                Start_time[0] = Start_time[0]-2;
+                days++;
+            }
+            while(Start_time[1]>'9' || Start_time[1]<'0'){
+                Start_time[1] = Start_time[1]-10;
+                Start_time[0] = Start_time[0]+1;
+            }
+            while(Start_time[0]>'2' || Start_time[0]<'0'){
+                Start_time[0] = Start_time[0]-3;
+                Start_time[1] = Start_time[1]+6;
+                days++;
+            }
+        }
+
+        Current_client++;
     }
-    while(str[3]>'5' || str[3]<'0'){
-        str[3] = str[3]-6;
-        str[1] = str[1]+1;
-    }
-    while(str[0]>='2' || str[0]<'0' || str[1]>='9' || str[1]<'0'){
-        if(str[0]=='2' && str[1]=='4'){
-            str[0] = '0';
-            str[1] = '0';
-            days++;
-        }
-        while((str[0]>='2' && str[1]>=4) || (str[0]>='2' && str[1]<'0')){
-            str[1] = str[1]-5;
-            str[0] = str[0]-2;
-            days++;
-        }
-        while(str[1]>'9' || str[1]<'0'){
-            str[1] = str[1]-10;
-            str[0] = str[0]+1;
-        }
-        while(str[0]>'2' || str[0]<'0'){
-            str[0] = str[0]-3;
-            str[1] = str[1]+6;
-            days++;
-        }
+
+    if(Bought_cans<50){
+        printf("Ainda nao foram vendidas latas suficientes. Faltam %d latas.", 50-Bought_cans);
     }
 
     return 0;
