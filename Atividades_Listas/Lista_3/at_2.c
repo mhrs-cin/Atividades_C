@@ -9,9 +9,10 @@ int main(void){
     
     scanf("%d %d %d\n", &Client_amount, &MULT, &Greedy_clients);
 
-    char Greedy_array[(Greedy_clients*5)+1]; int Array_greedy[Greedy_clients];
+    char Greedy_array[(Greedy_clients*5)+1]; // Array com os horários das pessoas que compraram mais de um monster
+    int Array_greedy[Greedy_clients]; // Array com a quantidade de bebidas para cada individuo "ganancioso"
     
-    for(int i = 0; i<Greedy_clients; i++){
+    for(int i = 0; i<Greedy_clients; i++){  // For loops que adicionam os horários e quantidades nas arrays respectivas
         for(int j = 0+(i*5); j<6+(i*5); j++){
             char tempchar;
             int tempint;
@@ -19,11 +20,11 @@ int main(void){
         }
     }
     
-    while(Current_client<=Client_amount){
+    while(Current_client<=Client_amount){ // While loop principal
 
-        int Equal_num = -1;
+        int Equal_num = -1; // Variavel que guarda o indicie do horario do cliente comparado ao horário atual
 
-        for(int i = 0; i<Greedy_clients; i++){
+        for(int i = 0; i<Greedy_clients; i++){ // O loop que compara em si
             int Is_equal = 1;
             int cont = 0;
 
@@ -38,7 +39,7 @@ int main(void){
             }
         }
         
-        if(Equal_num>=0){
+        if(Equal_num>=0){ // Se for igual adiciona ao total de latas compradas o valor do cliente "ganancioso"
             Bought_cans+=Array_greedy[Equal_num];
         }else{
             if(MULT>0 && Current_client%MULT==0){
@@ -59,7 +60,7 @@ int main(void){
 
         Start_time[4] = Start_time[4]+3;
 
-        while(Start_time[4]>'9' || Start_time[4]<'0'){ //sequ?ncia de while loops que corrigem o hor?rio;
+        while(Start_time[4]>'9' || Start_time[4]<'0'){ //sequ?ncia de while loops que corrigem o hor?rio no array;
             Start_time[4] = Start_time[4]-10;
             Start_time[3] = Start_time[3]+1;
         }

@@ -4,6 +4,6 @@ At_1: Usei IA para corrigir o meu código, aprendi que é mais otimizado separar
 
 At_2: Não usei IA GERALMENTE, só usei pra checar se teve ou não uma matriz, já que usei antes de saber que era proibído.
 
-At_3: 
+At_3: Não usei IA.
 
-At_4: 
+At_4: Não usei IA.
