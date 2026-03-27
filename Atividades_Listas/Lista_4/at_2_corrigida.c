@@ -2,6 +2,17 @@
 
 #include <stdio.h>
 
+int matPrint(int m, int n, char parede[m][n]){
+
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("%c", parede[i][j]);
+        }
+        printf("\n");
+    }
+
+}
+
 int main() {
     int m, n;
     if (scanf("%d %d", &m, &n) != 2) return 0;
@@ -53,12 +64,7 @@ int main() {
     }
 
     // 3. Impressão do resultado final
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-            printf("%c", parede[i][j]);
-        }
-        printf("\n");
-    }
+    matPrint(m, n, parede);
 
     return 0;
 }
